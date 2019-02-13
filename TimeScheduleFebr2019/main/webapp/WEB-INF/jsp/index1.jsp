@@ -18,7 +18,7 @@
       	</header> <!-- end of header -->
 	  	
 	  	<!-- add: the navigation -->
-		<%@ include file="nav1.jsp"%>	
+		<%@ include file="nav1.jsp"%>
 			
   						   
       	<!-- add: the content -->

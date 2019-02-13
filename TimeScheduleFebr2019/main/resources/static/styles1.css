@@ -38,3 +38,11 @@ body {
 /* color of the button */
 .w3-camo-gray,.w3-camo-grey
 {color:#fff;background-color:#9495a5}
+
+/* @@@@@@@@@@@@@@@' GOOD idea however once I uncomment it I can't see the BOTTOM PART of g,y,j */
+/* for the input field, drop-down lists, buttons */
+/*
+input[type=text], input[type=password], select, button {
+	border-radius: 4px; /* round the corners */
+} */
+
