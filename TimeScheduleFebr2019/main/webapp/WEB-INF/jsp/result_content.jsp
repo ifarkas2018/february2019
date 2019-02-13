@@ -33,11 +33,12 @@
 	            <div class="w3-content w3-text" style="max-width:600px">
 	            	<!--  w3-center centers the text -->
 	            	<!-- page_title : the title of the page ( an attribute added to the model in MainController.java ) -->
-		            <h2 class="w3-center"><b>${page_title}</b></h2>
+		            <h4 class="w3-center"><b>${page_title}</b></h4>
 					<br />
 					<br />
 					<br />
-		            <%
+					
+					<%
 		            	// String.valueOf: converts the parameter to String
 		                // I have added is_red ( whether the text will be in red ) to the model in the MainController.java
     					String text_red = String.valueOf(request.getAttribute("is_red"));
@@ -48,35 +49,44 @@
   							<!-- message_shown : the message to be shown ( an attribute added to the model in MainController.java ) -->
       						<h5 class="w3-center"><b>${message_shown}</b></h5>
       				<%
-      					// if the text is to be in red
-						}  else {
-						%>
-						   	<!-- message_shown : the message to be shown ( an attribute added to the model in MainController.java ) -->
-					        <h5 class="w3-center w3-text-red"><b>${message_shown}</b></h5>
-						<%
-						}
-						%>	
-						
-						numRows : ${numRows}
-						
-						<form action="http://localhost:8080/home" method="post"> <!-- when submitted the localhost:8080/home is shown -->	
-	  						Logged in ${logged_in}
-	  						<input class="w3-input w3-border" type="text" name="loggedin" value="${logged_in}"> <!-- input field containing e logged_in -->
-	  						<br/>
-			                <div class="w3-container w3-center">
-			                	<!-- add the button to the page -->
-			                	<button class="w3-btn w3-center w3-tiny w3-padding-small w3-camo-grey">Home</button> 
-			                </div>
-			                <br />
-			                <br />
-			                <br />
-			                <br />
-			                <br />
-			                <br />
-			                <br />
-		                </form>
+      				// if the text is to be in red
+					}  else {
+					%>
+						<!-- message_shown : the message to be shown ( an attribute added to the model in MainController.java ) -->
+					    <h5 class="w3-center w3-text-red"><b>${message_shown}</b></h5>
+					<%
+					}
+					%>	
+					<!-- : ${numRows} -->
+					<% 
+					// depending on whether the user logged in, after clicking on the button one of the two URLs are shown
+					String already_log = (String)(request.getAttribute("already_login"));
+					// if the user is logged in , after clicking on the button, localhost:8080/home is shown
+					if (already_log.equals("true")) { %>
+						<form action="http://localhost:8080/home" method="post"> <!-- when submitted the localhost:8080/home is shown -->
+					<!-- otherwise localhost:8080 is shown -->
+					<% } else { %>
+						<form action="http://localhost:8080" method="post"> <!-- when submitted the localhost:8080/home is shown -->
+					<% }
+					%>
+	
+	  					Logged in ${logged_in}
+	  					<input class="w3-input w3-border" type="text" name="loggedin" value="${logged_in}"> <!-- input field containing e logged_in -->
+	  					<br/>
+			            <div class="w3-container w3-center">
+			                <!-- add the button to the page -->
+			                <button class="w3-btn w3-center w3-tiny w3-padding-small w3-camo-grey">Home</button> 
+			            </div>
+			            <br />
+			            <br />
+			            <br />
+			            <br />
+			            <br />
+			            <br />
+			            <br />
+		            </form>
 	              	</div>
-	            </div>
+				</div>
 	            <br />
 	        </div>  <!-- end of class="w3-twothird w3-container" -->
 	    </div> <!-- end of class="w3-row w3-margin" --> 
