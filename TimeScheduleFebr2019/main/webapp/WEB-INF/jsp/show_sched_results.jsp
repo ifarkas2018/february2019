@@ -18,10 +18,19 @@
       	
 	  	<!-- including the navigation - to see the page show_schedule.jsp ( included below ) the user has to be logged in -->
 	  	<!-- that is the reason the nav_max is shown -->
-      	<%@ include file="nav1.jsp"%>    
+      	<%@ include file="nav1.jsp"%>  
+      	<% 
+      	// retrieving the model variable is_update from the controller 
+		// sess_update ( session variable ) : does the user want to see or update the schedule
+		String sess_update = (String)(session.getAttribute("sess_update")); %>
       	<!-- include the content of the web page -->
-      	 <!-- shows the table of tasks for the certain employee on the certain date -->
-      	 <%@ include file="show_schedule.jsp"%>
+      	<% if (sess_update.equals("true")) { // it is Update Schedule %>
+      	 	<!-- shows the table of tasks for the certain employee on the certain date ( it can be updated ) -->
+      	 	<%@ include file="upd_sched.jsp"%>
+      	 <% } else { %>
+      	 	<!-- shows the table of tasks for the certain employee on the certain date ( it can't be updated ) -->
+      	 	<%@ include file="show_schedule.jsp"%>
+      	 <% } %>
       	<br />
       	<!-- include the footer -->
       	<%@ include file="footer.jsp"%>

@@ -19,9 +19,10 @@
       	
       	<!-- including the navigation ( of the web page ) -->
 	  	<%@ include file="nav1.jsp"%> <!-- shows whether the update was successful -->
-			   
-      	<!-- including the content ( of the web page ) -->
+	  	
+	  	<!-- including the content ( of the web page ) -->
       	<%@ include file="result_content.jsp"%> <!-- shows whether the update was successful -->
+      	
       	<br />
       	<!-- including the footer -->
       	<%@ include file="footer.jsp"%>

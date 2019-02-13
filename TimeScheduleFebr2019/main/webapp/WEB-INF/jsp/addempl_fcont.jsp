@@ -48,7 +48,7 @@
 								    <option value="Sales">Sales</option>
 								    <option value="Management">Management</option>
 								    <option value="IT">IT</option>
-								    <option value="Administration">Administration</option>
+								    <option value="Administ">Administration</option>
 								    <option value="Support">Support</option>
 								</select> 
 		                  	</div>
