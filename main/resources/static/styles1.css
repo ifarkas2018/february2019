@@ -1,0 +1,48 @@
+/* project : Time Schedule, author : Ingrid Farkas, 2019 */ 
+/* author: Ingrid Farkas */
+
+body {
+    background: rgb(155, 145, 145);
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.content {
+    max-width: 1300px;
+    background: white;
+    margin: auto;
+}
+
+/* setting the background color of the element */ 
+.w3-theme-m1 {color:#000 !important; background-color:#e9f0f6 !important}
+/* when the user hovers the mouse over the element, setting the background color and the color of the text of the element */
+.w3-hover-theme-l4:hover {color:rgb(248, 198, 104) !important; background-color:#e9f0f6 !important}
+/* when the user hovers the mouse over the element, setting the color of the text of the element */
+.w3-hover-text-orange:hover { color: rgb(248, 198, 104) !important }  
+/* setting the color of the text of the element */ 
+.w3-text-theme-m1 { color:#0073d8 !important }
+
+/* setting black color of the text */
+.black_text { color: black } 
+
+/* setting red color of the text */
+.red_text { color: red } 
+
+/*
+.button_color { color:#0073d8; background: rgb(155, 145, 145); } */
+
+/* .w3-safety-blue
+{color:#fff;background-color:#0067a7} 
+
+.w3-2018-nebulas-blue {color:#fff;background-color:#3F69AA} */
+
+/* color of the button */
+.w3-camo-gray,.w3-camo-grey
+{color:#fff;background-color:#9495a5}
+
+/* @@@@@@@@@@@@@@@' GOOD idea however once I uncomment it I can't see the BOTTOM PART of g,y,j */
+/* for the input field, drop-down lists, buttons */
+/*
+input[type=text], input[type=password], select, button {
+	border-radius: 4px; /* round the corners */
+} */
+
