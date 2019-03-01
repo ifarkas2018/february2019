@@ -16,29 +16,21 @@
 	        </div>
 	
 			<%
-				// reading from the model variable whether the user is doing Add or Delete Task
+				// reading from the model variable whether the user is doing Add Task  
 				String is_add_del_task = (String)(request.getAttribute("is_add_del_task"));
-			    // read_add_d : whether the is_add_del_task attribute is set
-				String read_add_d = (String)(request.getAttribute("read_add_d"));
 				String is_add_task = "false"; // is it Add Task
 				String is_del_task = "false"; // is it Delete Task
 				
-				if (read_add_d.equals("false")){ // is_add_del_task attribute is not set ( in the controller ) - is_add_task, is_del_task is set
-					is_add_task = (String)(request.getAttribute("is_add_task")); // read from the model attribute whether it is Add Task
-					is_del_task = (String)(request.getAttribute("is_del_task")); // read from the model attribute whether it is Delete Task
-					is_add_del_task = "true"; // it is Add or Delete Task
-				} else {	
-					String sess_del_task = (String)session.getAttribute("sess_del_task"); // session attribute whether it is Delete Task 
-	
-					if (sess_del_task!=null) { // if the session variable is not set ( the user didn't do delete before or isn't doing it now )
-						if (sess_del_task.equals("true")){
-							is_del_task = "true"; // it is Delete Task
-						} else if (is_add_del_task.equals("true")){
-							is_add_task = "true"; // it is Add Task
-						}
-					} else 
+				String sess_del_task = (String)session.getAttribute("sess_del_task"); // session attribute whether it is Delete Task 
+
+				if (sess_del_task!=null) { // if the session variable is not set ( the user didn't do delete before or isn't doing it now )
+					if (sess_del_task.equals("true")){
+						is_del_task = "true"; // it is Delete Task
+					} else if (is_add_del_task.equals("true")){
 						is_add_task = "true"; // it is Add Task
-				}
+					}
+				} else 
+					is_add_task = "true"; // it is Add Task
 			%>
 			
 			<!-- "w3-third" class uses 66% of the parent container -->
@@ -59,9 +51,9 @@
 		                } else if (is_add_task.equals("true")){ // it is Add Task
 		                %>
 		                	<!-- w3-center centers the text -->
-		                	<h4 class="w3-center"><b>Add Task</b></h4>
+		                	<h4 class="w3-center"><b>Addd Task</b></h4>
 		                	<!-- after clicking on the button localhost:8080/add_d_res is called using method post -->
-		                	<form action="/add_d_res" method="post" target="_blank">
+		                	<form action="/add_d_res2" method="post" target="_blank">
 		                <%
 		                } else { // it is Delete task
 		                %>
@@ -112,7 +104,7 @@
 		                    	<input class="w3-input w3-border" type="text" name="task_date" value="${task_info.taskDate}" required=true> <!-- input field for entering the date of the task -->
 		                  	</div>
 		                <%	
-		                } else { // it is Add or Delete Task @@@@@@@@@ if (is_add_task.equals("true")) 
+		                } else if (is_add_task.equals("true")) { // it is Add
 		                %>  
 		                	<div class="w3-section">
 	                    	<label>Date ( format dd/mm/yyyy ) </label>
@@ -130,10 +122,10 @@
 		                    	<input class="w3-input w3-border" type="text" name="start_time" value="${task_info.taskStartTime}" required=true> <!-- input field for entering the start time -->
 		                  	</div>
 		                <%	
-		                } else { // it is Add Task or Delete Task if (is_add_task.equals("true")) @@@@@@@@@@@@@@@@@@@@@@@@
+		                } else if (is_add_task.equals("true")) { // it is Add Task
 		                %>
 		                	<div class="w3-section">
-		                    	<label>Start Time ( format hh:mm AM/PM )</label>
+		                    	<label>Start Time ( format hh:mm )</label>
 		                    	<input class="w3-input w3-border" type="text" name="start_time" required=true> <!-- input field for entering the start time -->
 		                  	</div>
 		                <%
@@ -144,7 +136,7 @@
 	              		if (is_add_del_task.equals("false")) { // it is not Add or Delete Task but Update Task
 	              		%>	 
 		                  	<div class="w3-section">
-		                    	<label>End Time ( format hh:mm AM/PM )</label>
+		                    	<label>End Time ( format hh:mm )</label>
 		                    	<!--  ??????????????????????????????  -->
 		                    	<!--  when removing REQUIRED go to MainController, show_schedule, and in method show_schedule remove required=true
 		                    		   for the last-name -->

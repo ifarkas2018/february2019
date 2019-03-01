@@ -67,7 +67,7 @@
     					
     					if ((is_add_task.equals("true")) || (is_del_task.equals("true"))) { // if Add or Delete Task
     					%>
-    						<form action="/add_d_form" method="post" target="_blank"> <!-- shows the URL : localhost:8080/add_d_form -->
+    						<form action="/add_d_form2" method="post" target="_blank"> <!-- shows the URL : localhost:8080/add_d_form -->
     				
     					<% 
     					} else { // if Show Schedule or Update Schedule
@@ -120,4 +120,4 @@
 	        </div>  <!-- end of class="w3-twothird w3-container" -->
 	    </div> <!-- end of class="w3-row w3-margin" --> 
     </div> <!-- end of the contact section -->
-</div> <!-- end of class="w3-content" -->
+</div> <!-- end of class="content" -->

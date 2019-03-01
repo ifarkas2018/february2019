@@ -76,7 +76,6 @@
 	            <!--  w3-light-grey sets the background colour of the container -->
 	            <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="show_sched_info"> 
 	              	<div class="w3-content w3-text" style="max-width:600px">
-	              		<!-- black_test CSS rule from the colors.css -->
 	                    <h4 class="w3-center"><b>Update Schedule</b></h4> 
 	 					<h6>Employee Name: ${enter_f_name} ${enter_l_name}</h6> <!-- showing the employee name -->
 	 					<h6>Date of the Schedule: ${enter_date}</h6> <!-- showing the date of the schedule -->
@@ -96,7 +95,6 @@
 						            	<th>Task Name</th>
 						            	<th>Start Time</th>
 						           		<th>End Time</th>
-						           		<!-- <th>Action</th> -->
 		       						</tr>
 		       						<!-- for each element of the list empSchedTaskInfos, show the id of the task, the name of the task, the start time and the end time of the task -->
 		       						<!-- empSchedTaskInfos is the attribute from the MainController.java, which was added to the model -->
@@ -106,15 +104,13 @@
 			       							<td>${schedinfo.taskName}</td>	<!-- show the name of the task -->
 			       							<td>${schedinfo.taskStartTime}</td> <!-- show the start time of the task -->
 			       							<td>${schedinfo.taskEndTime}</td> <!-- show the end time of the task -->  
-			       							<!-- Update link : when clicked /task_update is shown -->
-	     		       						<!-- mapping for the /task_update is done in the MainController.java -->
 			   							</tr>
 		       						</c:forEach> <!-- end of the forEach -->
 		   						</table>
 		    				
 		    					<br />
 		    					<br />
-								<!-- w3-camo-grey is a CSS rule in the colors.css -->
+								<!-- w3-camo-grey is a CSS rule in the styles1.css -->
 								<!-- sel_row_msg : after clicking on the button, if the user clicked on the table first the new web page is shown otherwise the modal box is shown -->
 								<button class="w3-btn w3-camo-grey" id="theBtn" onclick="return sel_row_msg();">Update Schedule</button> 
 						
@@ -141,43 +137,44 @@
 	    				</form>
 					</div> <!-- end of the class="w3-content w3-text" -->
 				</div> <!-- end of the class="w3-container w3-light-grey w3-padding-32 w3-padding-large" -->
-			</div> <!-- end of the class="w3-row w3-margin" -->
-		</div> <!-- end of the class="w3-content" -->
-	</div> <!-- end of class="w3-content" -->
-
+				<br />
+			</div> <!-- end of the class=""w3-twothird w3-container" -->
+		</div> <!-- end of the class=w3-row w3-margin" -->
+	</div> <!-- end of the contact section -->
+</div> <!-- end of class="w3-content" -->
 
 	<script>
-	// get the modal
-	var modal = document.getElementById('myModal');
-	
-	// get the button that opens the modal
-	var btn = document.getElementById("theBtn");
-	
-	// get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-	
-	// when the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	  modal.style.display = "none";
-	}
-	
-	// when the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	  if (event.target == modal) {
-	    modal.style.display = "none";
-	  }
-	}
-	
-	// get the table element with the id 'table'
-	var table = document.getElementById('table');         
-	for(var i = 1; i < table.rows.length; i++) // go through all the rows in the table
-		{
-	    	table.rows[i].onclick = function()
-	        {
-	    		row_selected = true; // the user clicked on the row of the table before clicking on the button
-	            document.getElementById("taskId").value = this.cells[0].innerHTML; // put the value for the task id from the table ( of the sel. row ) in the the input box         
-			};
+		// get the modal
+		var modal = document.getElementById('myModal');
+		
+		// get the button that opens the modal
+		var btn = document.getElementById("theBtn");
+		
+		// get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+		
+		// when the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
 		}
+		
+		// when the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+		
+		// get the table element with the id 'table'
+		var table = document.getElementById('table');         
+		for(var i = 1; i < table.rows.length; i++) // go through all the rows in the table
+			{
+		    	table.rows[i].onclick = function()
+		        {
+		    		row_selected = true; // the user clicked on the row of the table before clicking on the button
+		            document.getElementById("taskId").value = this.cells[0].innerHTML; // put the value for the task id from the table ( of the sel. row ) in the the input box         
+				};
+			}
 	
 	</script>
 

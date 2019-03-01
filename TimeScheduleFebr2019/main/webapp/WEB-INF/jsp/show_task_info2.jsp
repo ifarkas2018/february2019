@@ -21,13 +21,10 @@
       	
       	<!-- include the content of the web page -->
       	<!-- shows the form with the task name, date, start time, end time --> 
-      	<%@ include file="show_task_form.jsp"%> 
+      	<%@ include file="show_task_form2.jsp"%> 
       	<br />
       	
       	<!-- include the footer -->
       	<%@ include file="footer.jsp"%>
 	</div> 
 </body> 
-
-
-

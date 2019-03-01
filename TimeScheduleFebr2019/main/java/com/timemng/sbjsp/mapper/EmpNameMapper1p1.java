@@ -47,8 +47,8 @@ public class EmpNameMapper1p1 implements RowMapper<EmpNameInfo1p1> {
 		}
 		
 		// updating the query string to the new query string formed in the class EmpNameDAO, method addToQueryStr
-		public static void updateSQL_ID(String sql) {
-			SQL_EMP_NAME = sql; // sql - new query string
+		public static void updateSQL_EMP_ID(String sql) {
+			SQL_EMP_ID = sql; // sql - new query string
 		}
 }
 

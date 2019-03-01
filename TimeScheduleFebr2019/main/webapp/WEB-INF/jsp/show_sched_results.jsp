@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<!-- include the meta tags, the links to the external style sheets -->	  
+	<!-- include the link to the external style sheet -->	  
 	<%@ include file="header.jsp"%>
 </head>
 <body>   
@@ -16,14 +16,13 @@
         	<span class="w3-left">Time Management</span> 
       	</header> <!-- end of header -->
       	
-	  	<!-- including the navigation - to see the page show_schedule.jsp ( included below ) the user has to be logged in -->
-	  	<!-- that is the reason the nav_max is shown -->
+	  	<!-- including the navigation -->
       	<%@ include file="nav1.jsp"%>  
-      	<% 
-      	// retrieving the model variable is_update from the controller 
-		// sess_update ( session variable ) : does the user want to see or update the schedule
-		String sess_update = (String)(session.getAttribute("sess_update")); %>
-      	<!-- include the content of the web page -->
+      	
+      	<%  
+			// sess_update ( session variable ) : does the user want to see or update the schedule
+			String sess_update = (String)(session.getAttribute("sess_update")); %>
+      		<!-- include the content of the web page -->
       	<% if (sess_update.equals("true")) { // it is Update Schedule %>
       	 	<!-- shows the table of tasks for the certain employee on the certain date ( it can be updated ) -->
       	 	<%@ include file="upd_sched.jsp"%>

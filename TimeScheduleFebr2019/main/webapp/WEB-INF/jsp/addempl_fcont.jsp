@@ -19,7 +19,7 @@
 	        <div class="w3-twothird w3-container">
 	            <br/>
 	            <br/>
-	            <!--  w3-text-theme-m1 CSS rule which sets the color of the text ( file colors.css ) -->
+	            <!--  w3-text-theme-m1 CSS rule which sets the color of the text ( file styles2.css ) -->
 	            <div class="w3-container  w3-light-grey w3-padding-32 w3-padding-large" id="show_sched_info"> 
 	              	<div class="w3-content w3-text" style="max-width:600px">
 	              		<!--  w3-center centers the text -->
@@ -28,9 +28,6 @@
 		                <form action="/addempl_result" method="post" target="_blank">
 		                  	<div class="w3-section">
 		                    	<label>First Name</label>
-		                    	<!--  ??????????????????????????????  -->
-		                    	<!--  when removing REQUIRED go to MainController, addempl_result, and in method addempl_result remove required=true 
-		                    			for the first_name -->
 		                    	<input class="w3-input w3-border" type="text" name="first_name" required=true> <!-- input field for entering the first name -->
 		                  	</div> 
 		                  	<div class="w3-section">
@@ -38,17 +35,15 @@
 		                    	<!--  ??????????????????????????????  -->
 		                    	<!--  when removing REQUIRED go to MainController, addempl_result, and in method addempl_result remove required=true 
 		                    			for the last_name -->
-		                    	<input class="w3-input w3-border" type="text" name="last_name" required=nav
-		                    	> <!-- input field for entering the last name -->
+		                    	<input class="w3-input w3-border" type="text" name="last_name" required=true> <!-- input field for entering the last name -->
 		                  	</div> 
 		                  	<div class="w3-section">
 		                    	<label>Department</label>
-		                    	<!-- <input class="w3-input w3-border" type="text" name="department"> --> <!-- input field for entering the department -->
 		                    	<select class="w3-input w3-border" id="department" name="department">
 								    <option value="Sales">Sales</option>
 								    <option value="Management">Management</option>
 								    <option value="IT">IT</option>
-								    <option value="Administ">Administration</option>
+								    <option value="Administ">Administration</option> <!-- @@@@@@@@@@@@@@@@@@@@@do not put Administration - DOES NOT WORK  -->
 								    <option value="Support">Support</option>
 								</select> 
 		                  	</div>
