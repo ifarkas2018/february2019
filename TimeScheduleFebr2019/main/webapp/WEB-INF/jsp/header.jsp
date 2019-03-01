@@ -16,7 +16,7 @@
 <!-- a link to the external style sheet -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 
-<!-- styles.css - stylesheet with CSS rules used on the web site -->
+<!-- styles1.css - stylesheet with CSS rules used on the web site -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles1.css"/>  
 
 <!-- modal.css - stylesheet with CSS rules for the modal box used in show_schedule.jsp -->
