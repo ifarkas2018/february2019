@@ -28,7 +28,7 @@
 	    <div class="w3-twothird w3-container">
 	        <br/>
 	        <br/>
-	        <!--  w3-text-theme-m1 CSS rule which sets the color of the text ( file colors.css ) -->
+	        <!--  w3-text-theme-m1 CSS rule which sets the color of the text ( file styles.css ) -->
 	        <div class="w3-container  w3-light-grey w3-padding-32 w3-padding-large" id="show_sched_info"> 
 	            <div class="w3-content w3-text" style="max-width:600px">
 	            	<!--  w3-center centers the text -->
@@ -41,7 +41,7 @@
 					<%
 		            	// String.valueOf: converts the parameter to String
 		                // I have added is_red ( whether the text will be in red ) to the model in the MainController.java
-    					String text_red = String.valueOf(request.getAttribute("is_red"));
+    					String text_red = String.valueOf(request.getAttribute("is_red")); // is the text in red
     					// if the text is not supposed to be red - don't show it in red
 		                if(text_red.equals("false")) {
   					%>			
@@ -49,29 +49,27 @@
   							<!-- message_shown : the message to be shown ( an attribute added to the model in MainController.java ) -->
       						<h5 class="w3-center"><b>${message_shown}</b></h5>
       				<%
-      				// if the text is to be in red
-					}  else {
+      					// if the text is to be in red
+						}  else {
 					%>
 						<!-- message_shown : the message to be shown ( an attribute added to the model in MainController.java ) -->
 					    <h5 class="w3-center w3-text-red"><b>${message_shown}</b></h5>
 					<%
-					}
-					%>	
-					<!-- : ${numRows} -->
-					<% 
-					// depending on whether the user logged in, after clicking on the button one of the two URLs are shown
-					String already_log = (String)(request.getAttribute("already_login"));
-					// if the user is logged in , after clicking on the button, localhost:8080/home is shown
-					if (already_log.equals("true")) { %>
-						<form action="http://localhost:8080/home" method="post"> <!-- when submitted the localhost:8080/home is shown -->
-					<!-- otherwise localhost:8080 is shown -->
+						}
+    					
+						// depending on whether the user logged in, after clicking on the button one of the two URLs are shown
+						String already_log = (String)(request.getAttribute("already_login"));
+						// if the user is logged in , after clicking on the button, localhost:8080/home is shown
+						if (already_log.equals("true")) { 
+					%>
+							<form action="http://localhost:8080/home" method="post"> <!-- when submitted the localhost:8080/home is shown -->
+						<!-- otherwise localhost:8080 is shown -->
 					<% } else { %>
-						<form action="http://localhost:8080" method="post"> <!-- when submitted the localhost:8080/home is shown -->
+							<form action="http://localhost:8080" method="post"> <!-- when submitted the localhost:8080 is shown -->
 					<% }
 					%>
-	
 	  					Logged in ${logged_in}
-	  					<input class="w3-input w3-border" type="text" name="loggedin" value="${logged_in}"> <!-- input field containing e logged_in -->
+	  					<input class="w3-input w3-border" type="text" name="loggedin" value="${logged_in}"> <!-- input field containing logged_in -->
 	  					<br/>
 			            <div class="w3-container w3-center">
 			                <!-- add the button to the page -->

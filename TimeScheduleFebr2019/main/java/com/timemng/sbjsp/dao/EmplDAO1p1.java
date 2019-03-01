@@ -3,7 +3,6 @@ package com.timemng.sbjsp.dao;
 
 //importing the packages
 import java.util.List;
-
 import javax.sql.DataSource;
 
 import com.timemng.sbjsp.mapper.EmpMapper1p1;
@@ -24,7 +23,6 @@ public class EmplDAO1p1 extends JdbcDaoSupport {
 
 	 // addEmployee - adding the new employee ( with the first name fname, last name lname working in the department ) to the database 
 	 public int addEmployee(String fName, String lName, String department) {
-	 	//List<EmployeeInfo> list = null; // initialising the list
 	    int numRows=-1; // number of rows affected with the insert statement
 	    
 	 	// ADD_EMP_SQL is the String that contains the query onto which later I will add the first name, last name, department depending on the data the user entered in the Add Employee form
@@ -34,14 +32,13 @@ public class EmplDAO1p1 extends JdbcDaoSupport {
 	     	Object[] params = new Object[] {};
 	     	// EmployeeMapper is a mapping class that maps 1 column in the query statement to 1 field in the model class ( EmployeeInfo.java )
 	     	EmpMapper1p1 mapper = new EmpMapper1p1();
-	     	// running the query of adding a new user with the fName ( first name ), lName 9 last name ), department
-	     	// numRows = this.getJdbcTemplate().update(sql, params, mapper); // @@@@@@@@@@@@@@@ do I need here only one argument sql
+	     	// running the query of adding a new user with the fName ( first name ), lName ( last name ), department
 	     	numRows = this.getJdbcTemplate().update(sql);
 	     } catch (Exception e) {
 	     	
 	     }
 	     
-	  // returns the number of rows affected with the insert statement ( if an exception occured -1 is returned  
+	  // returns the number of rows affected with the insert statement ( if an exception occured -1 is returned )
 	  return numRows; 
 	 }
 	 
@@ -56,52 +53,17 @@ public class EmplDAO1p1 extends JdbcDaoSupport {
 	  	String sql = EmpMapper1p1.ADD_EMP_SQL;
 	  	
 	    if ((!(fName.equals(null))) && (!(lName.equals(null)))) {
-	        sql += "'" + fName + "',";
-	  		sql += "'" + lName + "'";
+	        sql += "'" + fName + "',"; // add the first name to the where clause
+	  		sql += "'" + lName + "'"; // add the last name to the where clause
 	  		if (!(department.equals(null))){
-	  		    sql += ",'" + department + "'";
+	  		    sql += ",'" + department + "'"; // add the department to the where clause
 	  		}
 	  		sql += ");"; 
 	  	
-	  	
-	  	// if  ((!(fName.equals(null))) && (!(lName.equals(null)))) {
-	  		// sql += "first_name='" + fName + "' AND ";
-	  		// sql += "last_name='" + lName + "' ";
-	  		// if (!(department.equals(null))){
-	  			// sql += "AND department='" + department + "' ";
-	  		// }
-	  		// sql += ") ";
-	  		// sql += "INSERT INTO employee ( first_name, last_name ";
-	  		// if (!(department.equals(null))){
-	  			// sql += ", department ";
-	  		// }
-	  		// sql += ") VALUES (";
-	  		// sql += "'" + fName + "'," + "'" + lName + "'";
-	  		// if (!(department.equals(null))){
-	  			// sql += ",'" + department + "'";
-	  		// }
-	  		// sql += ");";
 	  		returnVal = true;
 	  	} else {
-	  		returnVal = false;
-	  	}
-	  	
-	  	// if the user entered user name in the form I am changing the SQL query to return the records where the user name equals the entered value
-	  	//if (!(userName.equals(null))) 
-	  		//sql += "where ( user_name='" + userName + "') ";
-	  	//else
-	  		//returnVal = false;
-	  	
-	  	// if the user entered user name in the form I am changing the SQL query to return the records where the user name equals the entered value
-	  	//if (!(userPassw.equals(null))) {
-	  		//sql += "and ( password ='" + userPassw + "') ";
-	  		//returnVal = true;
-	  	//}
-	  	//else
-	  		//returnVal = false;
-
-	  	//sql += ";";
-	  	
+	  		returnVal = false; // the user didn't enter first name or last name
+	  	}	  	
 	  	
 	  	// PROBLEM : if id,name, date are all EMPTY - HANDLE THIS ????????????????????????????????????????????????????????
 	  	// update the SQL_LOGIN to the sql
@@ -109,5 +71,5 @@ public class EmplDAO1p1 extends JdbcDaoSupport {
 	  	
 	  	return returnVal;
 	  }
-	 
+
 }

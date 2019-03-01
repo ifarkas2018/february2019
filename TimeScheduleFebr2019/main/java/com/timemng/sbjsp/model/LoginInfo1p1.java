@@ -42,7 +42,5 @@ public class LoginInfo1p1 {
 
 	public void setEmployeeID(String employeeID) {
 		this.employeeID = employeeID;
-	}
-	
-	
+	}	
 }

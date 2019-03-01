@@ -1,3 +1,4 @@
+<!-- @@@@@@@@@@@@@@@@@@@ DELETE THIS -->
 <!-- project : Time Schedule, author : Ingrid Farkas, 2019 -->
 <!-- included in logform.jsp -->
 <!-- Contact section -->
@@ -24,7 +25,7 @@
 	              		<!--  w3-center centers the text -->
 		                <h4 class="w3-center"><b>Login</b></h4>
 		                <!-- after clicking on the button localhost:8080/login_result is called using method post -->
-		                <form action="/login_result" method="post" target="_blank">
+		                <form action="/login_result2" method="post" target="_blank">
 		                  	<div class="w3-section">
 		                    	<label>User Name</label>
 		                    	<input class="w3-input w3-border" type="text" name="user_name" required=true> <!-- input field for entering the user name -->

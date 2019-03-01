@@ -1,8 +1,8 @@
 <!-- author: Ingrid Farkas; project: Time Management -->
 <!-- navigation bar -->
-<!-- w3-theme-m1 is a CSS rule from the colors.css -->
+<!-- w3-theme-m1 is a CSS rule from the styles1.css -->
 <div class="w3-bar w3-theme-m1 w3-round-xxlarge"> <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$w3-margin if it needs to be moved to right --> 
-    <!-- w3-text-theme-m1 : CSS rule defined in colors.css -->
+    <!-- w3-text-theme-m1 : CSS rule defined in styles1.css -->
     <span class="w3-bar-item w3-text-theme-m1">H &amp; C Web Consulting</span>
     
     <!-- importing the class Enumeration -->
@@ -34,16 +34,17 @@
     		session.setAttribute("sess_logout", "false");
     		// mod_admin: whether the user is logging in as admin ( the attribute "is_admin" added to the model ( MainController.java ))
     		String mod_admin = (String)(request.getAttribute("is_admin"));
-    		// if the user is logging in as admin
+    		// if the user is logging in as administrator
     		if (mod_admin.equals("true")) { 
     			// set the session equivalent sess_adm to true ( the user is loggging in as admmin )
     			session.setAttribute("sess_adm", "true");
     		} else if (mod_admin.equals("false")) {
     			session.setAttribute("sess_adm", "false");
     		}
+    		
     		// if the user is logging in as admin
     		if (mod_admin.equals("true"))
-    			is_admin = true;
+    			is_admin = true; 
     		else
     			is_reg = true; // otherwise the user is logging in as regular user
     	} else if (mod_logout.equals("true")){
@@ -76,7 +77,7 @@
 	<!-- w3-hover-theme-l4 when the user hovers the mouse, there is no change in the background color of the navigation bar, the text color is orange -->
 	<!-- w3-mobile used to create a responsive navbar with responsive dropdown links -->
 	<% if ((is_reg) || (is_admin)) { // the user is logged in as regular user or as admin %>
-		<a href="home" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-theme-l4 w3-mobile">Home</a>
+		<a href="home" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-theme-l4 w3-mobile">Home</a> 
 	<% } else { // the user is not logged in %>
 		<a href="/" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-theme-l4 w3-mobile">Home</a>
 	<% } %>
@@ -91,7 +92,7 @@
 	<% 
     	} 
 
-		// if the user logged in as a regular user or as an admin show the Schedule submenu  
+		// if the user logged in as a regular user or as an administrator show the Schedule submenu  
 		if (is_reg || is_admin) {  
 	%>
 		    <!-- w3-dropdown-hover is used to create hoverable drop down element -->
@@ -136,9 +137,32 @@
 					<!-- w3-text-theme-m1  is a CSS rule from the colors.css ( sets the color of the text to the blue ) -->
 					<!-- w3-hover-text-orange is used to set the orange color of the text when the user hovers the mouse over the link --> 
 					<a href="task_list" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Task List</a> 
-					<a href="task_add" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Add Task</a>
+					<%
+		        		if (is_admin) { // the user is logged in an admin
+		        	%>
+							<a href="add_task" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Add Task</a>
+							<!-- <a href="newadd_task" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Add Task2</a> -->
+					<%
+		        		} else if (is_reg) { // the user is logged in an administrator
+		        	%>
+							<a href="add_task_get" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Add Task</a>
+							<!-- <a href="newadd_task_fget" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Add Task2</a> -->
+					<%
+						} 
+					%>
 					<a href="task_update" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Update Task</a>
-					<a href="task_delete" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Delete Task</a>
+					<!-- <a href="task_delete" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Delete Task</a> -->
+					<%
+		        		if (is_admin) { // the user is logged in an admin
+		        	%>
+							<a href="del_task" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Delete Task</a>
+					<%
+		        		} else if (is_reg) { // the user is logged in an administrator
+		        	%>
+							<a href="del_task_get" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-text-orange w3-hover-none w3-mobile">Delete Task</a>
+					<%
+						} 
+					%>
 				</div>      
 			</div>
 	<%
@@ -165,7 +189,8 @@
 	 	} else {
 	%>
 			<a href="logform" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-theme-l4 w3-mobile w3-right">Log In</a>
-	<%
+			<!-- <a href="newlogform" class="w3-bar-item w3-button w3-text-theme-m1 w3-hover-theme-l4 w3-mobile w3-right">Log In2</a> -->
+	<% 
 	 	}
 	%>
 </div> <!-- end of class="w3-bar w3-theme-m1 w3-round-xxlarge" -->

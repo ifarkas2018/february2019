@@ -1,7 +1,7 @@
 // project : Time Schedule, author : Ingrid Farkas, 2019 
 package com.timemng.sbjsp.model;
 
-//EmployeeInfo - model class ( the class representing the data of the record in the Employee table )
+// EmployeeInfo - model class ( the class representing the data of the record in the employee table )
 public class EmpInfo1p1 {
 
 	private String firstName; // employee's first name
